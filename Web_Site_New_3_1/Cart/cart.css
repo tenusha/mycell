@@ -1,0 +1,116 @@
+.cartbox{
+	display:flex;
+	padding-left: 10%;
+	padding-right: 10%;	
+		}
+.box1{
+	background-color: white;
+	border: solid gray 1px;
+	width: 70%; 
+	padding: 10px;
+		}
+.flex{
+	display: flex;
+}
+.box2{
+	background-color: white;
+	border: solid gray 1px;
+	width: 30%;
+	margin-left: 10px; 
+	padding: 10px;
+	height: 275px;
+}
+.formbox{
+	width:50%;
+}
+.canbutton{
+	color: #0654ba;
+	background-color: 
+	white; width:80px; 
+	height:40px; 
+	border-radius: 10px;
+}
+.dbutton{
+	color: white; 
+	background-color: #0654ba; 
+	width:80px; 
+	height:40px; 
+	border-radius: 10px;
+}
+.table1{
+	padding-left: 100px;
+}
+.table2{
+	padding-left: 40px;
+}
+.paybutton{
+	padding-top: 20px;
+	color: white; 
+	background-color: #0797C1;
+	border-color:1px solid black;
+	width: 90%;
+	height: 50px; 
+	font-size: 20px;
+	border-radius: 10px;
+}
+.link{
+	text-decoration: none;
+}
+#t1{
+	width:100%;
+	background-color:black;
+	border-collapse:collapse;
+}
+.t2{
+	border-left:2px solid white;
+	text-align:center;
+	width:20%;
+}
+.t2_1{
+	text-align:center;
+	width:20%;
+}
+.a1{
+	color:white;
+	text-decoration:none;
+	font-size:25px;
+	font-weight:bold;
+}
+#p1{
+	border:2px solid black;
+	border-radius:6px;
+	background-color:yellow;
+	font-weight:bolder;
+	font-size:18px;
+	width: 250px;
+}
+a.foot{
+	text-decoration:none;
+}
+a.foot:link{
+	color:blue;
+}
+a.foot:visited{
+	color:blue;
+}
+a.foot:hover{
+	color:purple;
+}
+a.remove:link{
+	color:blue;
+}
+a.remove:visited{
+	color:purple;
+}
+a.remove:hover{
+	color:red;
+}
+.contShopping{
+	padding-top: 20px;
+	color: blue; 
+	background-color: white;
+	width: 90%;
+	height: 50px; 
+	font-size: 20px;
+	border-radius: 10px;	
+}

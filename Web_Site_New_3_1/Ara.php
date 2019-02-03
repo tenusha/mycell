@@ -11,10 +11,12 @@
 	}
 ?>
 
+<!DOCTYPE html>
 <html>
 
 	<head>
-	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MyCell(Pvt) Ltd</title>
 	<style>
 		.inputs
 		{
@@ -68,14 +70,14 @@
 				<tr>
 					<td>
 					<form name = "myform1" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-						<table id="sub1" border="0" cellspacing="10" cellpadding="5" style=''>
+						<table id="sub1" border="0" cellspacing="10" cellpadding="5">
 							<tr><td><pre><h5>Aleady have an Account?</h5><h3>LOGIN</h3></pre></td></tr>
 							<tr>
-								
+
 								<td colspan='2'><input class="inputs" type="text" name="username" placeholder="Username" style='height:40px; width:200px;'/></td>
 							</tr>
 							<tr>
-								
+
 								<td colspan='2'><input class="inputs" type="password" name="password" placeholder="Password" style='height:40px; width:200px;'/></td>
 							</tr>
 							<tr>
@@ -87,10 +89,10 @@
 		 						{
 									$username = $_POST['username'];
 									$password = $_POST['password'];
-									
+
 									if(empty($username) || empty($password))
 									{
-										$error = "<tr><td colspan='2' color='red'>username or password empty!</td><tr>";
+										$error = "<tr><td colspan='2' style ='color:#fb9a9a'>Username or Password Empty!</td><tr>";
 										echo $error;
 									}
 									else
@@ -100,30 +102,33 @@
 										{
 											$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 											$count = mysqli_num_rows($result);
-                                            
+
 											if($count == 1)
 											{
-                                                if($username=='admin' && $password=='admin123'){
-													$_SESSION['username'] = $username;
+                        	if($row['username']=='Admin' && $row['password']==$password){
+													$_SESSION['username'] = 'Admin';
 													if (isset($_POST['submit']))
 													{
-														header("location: ../Final/admin_index.php");
-														exit();
+														echo "<script>window.location.href='../Final/admin_index.php';</script>";
 													}
 												}
-												else{
+												else if($row['username']==$username && $row['password']==$password) {
 												$_SESSION['username'] = $username;
-												
+
 												if (isset($_POST['submit']))
 												{
-													header("location: ./index.php");
-													exit();
-												}}
+													echo "<script>window.location.href='./index.php';</script>";
+												}
+											}
+											else{
+												$error = "<tr><td colspan='2' style ='color:#fb9a9a'>Invalid Username or Password</td><tr>";
+												echo $error;
+											}
 
 											}
 											else
 											{
-												$error = "<tr><td colspan='2'>Invalid Username or Password</td><tr>";
+												$error = "<tr><td colspan='2' style ='color:#fb9a9a'>Invalid Username or Password</td><tr>";
 												echo $error;
 											}
 										}
@@ -133,7 +138,7 @@
 										}
 									}
 								}
-							?>		
+							?>
 						</table>
 					</form>
 					</td>
@@ -162,21 +167,29 @@
 							<?php
 								if(isset($_POST['submit1']))
 								{
-									
+
 									$username1 = $_POST['username1'];
 									$password1 = $_POST['password1'];
 									$password2 = $_POST['password2'];
 									$email = $_POST['email'];
 									$fname = $_POST['fname'];
 									$lname = $_POST['lname'];
+
+									$checkQuery="SELECT * FROM account WHERE username = '$username1' ";
+									$res=mysqli_query($con,$checkQuery);
+									$numRows=mysqli_num_rows($res);
+
 									if(empty($username1) || empty($password1) || empty($password2) || empty($email) || empty($fname) || empty($lname))
 									{
-										$error = "<tr><td colspan='2' color='red'>Please fill all fields!</td></tr>";
+										$error = "<tr><td colspan='2' style ='color:#fb9a9a'>Please Fill All Fields!</td></tr>";
 										echo $error;
 									}
 									else if($password1 <> $password2)
 									{
-										echo $erro="<tr><td colspan='2' color='red'>Password Don't match</td></tr>";
+										echo $erro="<tr><td colspan='2' style ='color:#fb9a9a'>Password Don't Match</td></tr>";
+									}
+									else if($numRows == 1){
+											echo $erro="<tr><td colspan='2' style ='color:#fb9a9a'>Username Already Exists</td></tr>";
 									}
 									else
 									{
@@ -189,11 +202,11 @@
 										{
 											$_SESSION['username'] = $username1;
 											echo "<script> alert('Registered Successfully!');
-                                				  window.location.href='index.php';</script>";
+                             window.location.href='index.php';</script>";
 										}
 										else
 										{
-											echo $erro="<tr><td colspan='2' color='red'>Cannot Enter values to database</td></tr>";
+											echo $erro="<tr><td colspan='2' style ='color:#fb9a9a'>Cannot Enter Values to Database</td></tr>";
 										}
 									}
 								}
@@ -203,7 +216,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2"><a class="l1" href=".\resetpass.php"><center>Forgot Password?</center></a></td>
+					<td colspan="2"><a class="l1" href="./resetpass.php"><center>Forgot Password?</center></a></td>
 				</tr>
 			</table>
 		</div>

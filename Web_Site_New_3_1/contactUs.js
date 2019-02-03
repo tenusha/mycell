@@ -6,8 +6,8 @@ function validate(){
 	var country = document.forms["myForm1"]["country"].value;
 	var state = document.forms["myForm1"]["state"].value;
 	var textarea = document.forms["myForm1"]["textarea"].value;
-	
-	
+
+
 	if(isAlpha(fname, "First Name")){
 		if(isAlpha(lname, "Last Name")){
 			if(mailVal(email)){
@@ -24,7 +24,7 @@ function validate(){
 			}else return false;
 		}else return false;
 	}else return false;
-	
+
 }
 
 function isEmpty(val, fie){
@@ -60,7 +60,7 @@ function mailVal(val){
 	if(!isEmpty(val, "E-mail")){
 		var dotpos=val.indexOf(".");
 		var atpos=val.indexOf("@");
-		
+
 		if(atpos<1 || (atpos+2>=dotpos) || (dotpos+2>=val.length)){
 			alert("Input valid e-mail address !");
 			return false;

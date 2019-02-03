@@ -11,7 +11,7 @@
 
 		if(mysqli_query($con,$query2))
 		{
-			$row = mysqli_fetch_array($result1);	
+			$row = mysqli_fetch_array($result1);
 		}
 		else
 		{
@@ -20,9 +20,12 @@
 
 ?>
 
+<!DOCTYPE html>
 <html>
+
 	<head>
-		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>MyCell(Pvt) Ltd</title>
 		<style>
 			.table1{
 						width: 260px;
@@ -46,12 +49,14 @@
 		</style>
 
 	</head>
+
 	<body>
+
 	<div>
 		<form name="myForm1" method="post" action= "<?php echo $_SERVER['PHP_SELF'] ?>">
 						<table id = "main">
 							<tr>
-								<td><sup>Username : </sup><b><?php echo $_SESSION['username']; ?></b></td>
+								<td><b>Username : <?php echo $_SESSION['username']; ?></b></td>
 							</tr>
 							<tr>
 								<td><sup>Firstname :</sup><input type="text" name = "fname" placeholder="First Name" value ="<?php echo $row['fname']; ?>" class="table1" style='height:40px; width:300px;'></td>
@@ -85,12 +90,23 @@
 		$state = $_POST['state'];
 		$address = $_POST['address'];
 
+
+
 		$query = "UPDATE account SET fname = '$fname', lname = '$lname', mobileNo = '$mobNo', email = '$email', state = '$state', address = '$address'  WHERE username = '$user'";
 		$result = mysqli_query($con,$query);
-		if(mysqli_query($con,$query))
+		if(empty($mobNo)){
+			echo "<b><center style ='color:#fb9a9a'>Invalid Phone Number Please Re-Enter</center></b>";
+		}
+		else if(mysqli_query($con,$query))
 		{
+			if($_SESSION['username'] =='Admin'){
 			echo "<script> alert('Relavent Fields Updated Successfully!');
-						   window.location.href='index.php';</script>";
+						   window.location.href='../Final/admin_index.php';</script>";
+				}
+				else{
+					echo "<script> alert('Relavent Fields Updated Successfully!');
+								   window.location.href='index.php';</script>";
+				}
 		}
 		else
 		{
@@ -99,14 +115,12 @@
 
 	}
 	else if(isset($_POST['submit4']))
-	{  
-        if($_SESSION['username'] =='admin'){
-            header('location: ../Final/admin_index.php');
-            exit();
+	{
+        if($_SESSION['username'] =='Admin'){
+					echo "<script>window.location.href='../Final/admin_index.php';</script>";
         }
         else{
-            header('location: index.php');
-            exit();
+					echo "<script>window.location.href='index.php';</script>";
         }
 	}
 ?>

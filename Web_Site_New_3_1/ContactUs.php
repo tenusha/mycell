@@ -1,43 +1,39 @@
-<!DOCTYPE html>
-
 <?php
-	include('dbconnect.php');
-    include('Header.php');
+		if(empty($_SESSION))
+		{
+			session_start();
+		}
 ?>
-
+<!DOCTYPE html>
 <html>
+
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="./HomePage/background.css">
 		<script type = "text/javascript" src="contactUs.js"></script>
 		<style>
-#t1{
-	width:100%;
-	background-color:black;
-	border-collapse:collapse;
-}
-.t2{
-	border-left:2px solid white;
-	text-align:center;
-	width:20%;
-}
-.a1{
-	color:white;
-	text-decoration:none;
-	font-size:25px;
-	font-weight:bold;
-}
-.table1{
-	width: 260px;
-	height: 35px;
-	margin:20px;
-}
+
+			.table1{
+				width: 260px;
+				height: 35px;
+				margin:20px;
+			}
+
 		</style>
 		<title>MyCell(Pvt) Ltd</title>
 	</head>
 	<body>
+
+		<?php
+			include('dbconnect.php');
+		  include('Header.php');
+		?>
+		<br>
+
+
 		</div>
 		<div id="mainImage" style=" margin-left: 12%; margin-right: 10%; margin-top: 10px">
-			<img id = "test1" src="./ContactUs/main.jpg" width="1040px" height="340px"  style="box-shadow: 1px 10px 20px #000000;">
+			<img id = "test1" src="./ContactUs/main.jpg" width="1035px" height="340px"  style="box-shadow: 1px 10px 20px #000000;">
 		</div>
 
 		<div style="display: flex">
@@ -66,17 +62,19 @@
 			</div>
 			<div style=" margin-left: 85px; margin-top: 20px;">
 				<div id = "map1">
-					<img src="./ContactUs/map.png" width="70%" height="230px" style="border-style: solid; border-width: 1px; border-color: black;">
+					<img src="./ContactUs/map.png" width="71%" height="230px" style="border-style: solid; border-width: 1px; border-color: black;">
 				</div>
 				<div style="margin-right: 10%">
-					<div style="padding: 3%;"><img src="./ContactUs/locate.png" width="4%" height="2%" style="padding-right: 10px;">MyCell (Pvt) Ltd, No 02, Ground Floor, Liberty Plaza, Colombo 03.</div>
-					<div style="padding: 3%;"><img src="./ContactUs/call.png" width="4%" height="2%" style="padding-right: 10px;">+94 (0) 11 2333777 / +94 77 7883333</div>
-					<div style="padding: 3%;"><img src="./ContactUs/fax.png" width="4%" height="2%" style="padding-right: 10px;">+94 (0) 11 23337800</div>
-					<div style="padding: 3%;"><img src="./ContactUs/mail.png" width="4%" height="2%" style="padding-right: 10px;">info@mycell.com</div>
+					<div style="padding: 3%;"><img src="./ContactUs/locate.png" width="6%" height="3%" style="padding-right: 10px;">MyCell (Pvt) Ltd, No 02, Ground Floor, <br> </div>
+					<div style="padding-left:8.5%; line-height: 0.2">Liberty Plaza, Colombo 03.</div>
+					<br>
+					<div style="padding: 3%;"><img src="./ContactUs/call.png" width="6%" height="3%" style="padding-right: 10px;">+94 (0) 11 2333777 / +94 77 7883333</div>
+					<div style="padding: 3%;"><img src="./ContactUs/fax.png" width="6%" height="3%" style="padding-right: 10px;">+94 (0) 11 23337800</div>
+					<div style="padding: 3%;"><img src="./ContactUs/mail.png" width="6%" height="3%" style="padding-right: 10px;">info@mycell.com</div>
 				</div>
 			</div>
 		</div>
-		<footer id="foot1" style="background-color: #989898; text-align: center; margin-top: 10px">MyCell (Pvt) Ltd, No 02, Ground Floor, Liberty Plaza, Colombo 03. Phone: +94 (0) 2333777 / +94 77 7883333</footer>
+		<footer id="foot1" style="background-color: #373737; color:#c7c7c7; text-align: center; margin-top: 10px">Copyright 2017 - <?php echo date("Y"); ?> &copy; ALPHA Team ( Ranmal Dewage, Tenusha Guruge, Vimukthi Rajapaksha, Aravinda Kulasooriya ). All Rights Reserved.</footer>
 		<?php
 			mysqli_close($con);
 		?>

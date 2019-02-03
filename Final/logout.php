@@ -9,5 +9,4 @@
 	header("location: ../Web_Site_New_3_1/index.php");
 	exit();
 	sqli_close($con);
-
 ?>

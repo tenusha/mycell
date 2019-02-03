@@ -1,6 +1,6 @@
 <?php
 
-	$con = mysqli_connect('localhost','root','','ITA');
+	$con = mysqli_connect('localhost', 'id1577350_mycell', 'mycell', 'id1577350_ita');
 
 	if(mysqli_connect_errno())
 	{

@@ -74,7 +74,7 @@
 				<?php 
 					$name=" "; $manufact=" "; $price=" "; $id=" ";
 
-					$con = mysqli_connect('localhost', 'root', '', 'ITA');
+					$con = mysqli_connect('localhost', 'id1577350_mycell', 'mycell', 'id1577350_ita');
 					if(mysqli_connect_errno()){
 						echo 'failed to connect to MySQL: '.mysqli_connect_error();
 					}

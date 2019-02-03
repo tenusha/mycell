@@ -4,7 +4,7 @@ An interactive website that deals with online transactions for buying mobile pho
 
 ## Screenshots
 
-<img src="https://i.ibb.co/TPzVj1r/Capture.png" alt="Capture" border="0">
+<img src="https://i.ibb.co/TPzVj1r/Capture.png" alt="Capture" border="0" style="width:100%">
 
 <img src="https://i.ibb.co/26nq6Bk/Capture1.png" alt="Capture1" border="0">
 
